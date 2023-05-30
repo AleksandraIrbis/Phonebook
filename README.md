@@ -10,5 +10,5 @@
 Разработчики:
 1.	главная, контролер - AnnaPopchenya
 2.	model - AleksandraIrbis
-3.	view - Nastteh , функция menu - AnnaPopchenya
+3.	view - Nastteh , функция menu - AnnaPopchenya.
 
