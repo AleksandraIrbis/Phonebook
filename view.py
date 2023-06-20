@@ -1,5 +1,5 @@
 import pprint
-
+import model
 def greetings():
     print('Добро пожаловать в телефонный справочник\n')
    
@@ -17,18 +17,24 @@ def menu():
           "7: Выход\n**********************")
     
 
-def result(res):
+def result():
     print('Данные сохранены успешно')    
 
 def show_contacts(d):
-    pprint.pprint(d)
+    if (len(d) ==0): 
+        print("в списке контактов пока пусто. воспользуйтесь функцией добавления контакта (кнопка 2)") 
+    else: 
+        pprint.pprint(d)
     
    
-def delete_contacts(result):
-    print('Данные успешно удалены')
+def delete_contacts(name):
+    if True:
+        print(f"контакт  {name} успешно удален")
+    else:
+        print("Не удалось удалить контакт.")
     
-def change_contacts(result): 
-    print('Данные сохранены успешно')
+def change_contacts(new_name): 
+    print(f"контакт  {new_name} успешно изменен")
 
 def error():
     print('Ой! Что-то пошло не так... Попробуйте снова')

@@ -1,25 +1,60 @@
-
+import json
 d = {}
 
+def get_all(): #показать все, что есть
+  global d
+  return d
+
 def add_contact(name, phone):# добавить контакт
-     d.setdefault(name, []).append(phone)
+    global d
+    d[name] = phone
+    with open('dictionary.json', 'w') as file:
+        json.dump(d, file)
+    return True
+     
 
 def delete_name(name):# удалить контакт
-    del d[name]
+    global d
+    if name in d:
+        del d[name]
+        with open('dictionary.json', 'w') as file:
+                json.dump(d, file)
+        return True
+    return False
+     
+    
 
 
-def see_all(d):# посмотреть весь список
-        import pprint
+
+
 def find_name(name):# найти по имени
-    result=d.get(name)
+    global d
+    if name in d:
+        result=d.get(name)
+        return result
+    return False
+     
 
-def change_phone(phone, new_phone):# изменить номер
+
+def change_phone(name, new_phone):# изменить номер
         global d
-        d[phone] =new_phone
+        if name in d:
+            d[name] = new_phone
+            with open('dictionary.json', 'w') as file:
+                json.dump(d, file)
+            return True
+        return False
+
+
 
 
 def change_name(name, new_name): # изменить имя
     global d
-    d[new_name] = d.pop(name)
+    if name in d:
+        d[new_name] = d.pop(name)
+        with open('dictionary.json', 'w') as file:
+                json.dump(d, file)
+        return True
+    return False
 
 
